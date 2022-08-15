@@ -1,0 +1,14 @@
+{
+    "exclude": ["node_modules"],
+    "compilerOptions": {
+        "baseUrl": "./",
+        "paths": {
+            "#config/*":["./src/config/*"],
+            "#controllers/*":["./src/controllers/*"],
+            "#database/*":["./src/database/*"],
+            "#models/*":["./src/models/*"],
+            "#routes/*":["./src/routes/*"],
+            "#validators/*":["./src/validators/*"]
+        }
+    }
+}
