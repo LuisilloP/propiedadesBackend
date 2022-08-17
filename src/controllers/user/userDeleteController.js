@@ -5,9 +5,11 @@ const userDeleteController = async (req, res) => {
   const { id } = req;
   const { password } = req.body;
   const existeUsuario = await usuario.findById(id).exec();
-  if (!existeUsuario) return res.status(401).send("no existe usuario");
+  if (!existeUsuario)
+    return res.status(401).send({ errors: ["no existe usuario"] });
   const checkPassword = await compare(password, existeUsuario.password);
-  if (!checkPassword) return res.status(401).send("credenciales incorrectas");
+  if (!checkPassword)
+    return res.status(401).send({ errors: ["credenciales incorrectas"] });
   await existeUsuario.delete();
   return res.send("usuarioEliminado");
 };

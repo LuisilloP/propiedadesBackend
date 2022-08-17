@@ -2,9 +2,10 @@ import { jwtVerify } from "jose";
 
 const userJWTDTO = async (req, res, next) => {
   const { authorization } = req.headers;
-  if (!authorization) res.status(401).send("usuario no autenticado");
+  if (!authorization)
+    res.status(401).send({ errors: ["usuario no autorizado"] });
   const jwt = authorization.split(" ")[1];
-  if (!jwt) res.status(401).send("usuario no autenticado");
+  if (!jwt) res.status(401).send({ errors: ["usuario no autorizado"] });
   try {
     const encoder = new TextEncoder();
     const { payload } = await jwtVerify(
@@ -14,7 +15,7 @@ const userJWTDTO = async (req, res, next) => {
     req.id = payload.id;
     next();
   } catch (error) {
-    return res.status(401).send("usuario no autorizado");
+    return res.status(401).send({ errors: ["usuario no autorizado"] });
   }
 };
 export default userJWTDTO;
