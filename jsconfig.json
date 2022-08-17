@@ -8,7 +8,8 @@
             "#database/*":["./src/database/*"],
             "#models/*":["./src/models/*"],
             "#routes/*":["./src/routes/*"],
-            "#validators/*":["./src/validators/*"]
+            "#DTO/*":["./src/DTO/*"],
+            "#lib/*":["./src/lib/*"]
         }
     }
 }

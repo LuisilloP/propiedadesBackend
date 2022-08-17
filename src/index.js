@@ -1,12 +1,10 @@
 //dependencias
 import "#config/dotenv.js";
 import httpServer from "#config/http.js";
-import cors from "cors";
 
 //conecion bd
 import dbConect from "./config/conect.js";
 //rutas
-import cuentaRuter from "./routes/cuenta.js";
 import propiedadeRouter from "./routes/propiedad.js";
 
 //inicializar

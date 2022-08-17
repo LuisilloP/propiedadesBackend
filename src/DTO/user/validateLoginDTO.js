@@ -1,26 +1,18 @@
-import { Type } from "@sinclair/typebox";
+import { Type } from "@sinclair/typebox"; //objeto que tiene todos los tipos
 import addFormats from "ajv-formats";
 import addErrors from "ajv-errors";
 import Ajv from "ajv";
+
+import { CorreoDTOSchema, PasswordDTOSchema } from "#DTO/user/dto-types.js";
 const loginDto = Type.Object(
   {
-    correo: Type.String({
-      format: "email",
-      errorMessage: {
-        type: "El tipo debe ser string",
-        format: "debe contener correo valido",
-      },
-    }),
-    pass: Type.String({
-      errorMessage: {
-        type: "tipo de password debe ser string",
-      },
-    }),
+    correo: CorreoDTOSchema,
+    password: PasswordDTOSchema,
   },
   {
     additionalProperties: false,
     errorMessage: {
-      additionalProperties: "formato no valido,solo correo y password",
+      additionalProperties: "formato no valido",
     },
   }
 );
