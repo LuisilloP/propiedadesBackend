@@ -4,8 +4,6 @@ import httpServer from "#config/http.js";
 
 //conecion bd
 import dbConect from "./config/conect.js";
-//rutas
-
 //inicializar
 const PUERTO = process.env.PUERTO || 2000;
 const IniciaApp = () => {
