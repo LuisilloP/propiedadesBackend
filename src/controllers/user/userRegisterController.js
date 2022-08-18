@@ -13,7 +13,10 @@ const userRegisterController = async (req, res) => {
       .status(409)
       .send({ errors: ["correo ya se encuentra registrado"] });
 
-  const passwordHash = await bcrypt.hash(password, process.env.SALTOS_HASH);
+  const passwordHash = await bcrypt.hash(
+    password,
+    parseInt(process.env.SALTOS_HASH)
+  );
   const nuevoUsuario = new Usuario({
     _id,
     nombre,
