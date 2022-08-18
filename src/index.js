@@ -5,10 +5,9 @@ import httpServer from "#config/http.js";
 //conecion bd
 import dbConect from "./config/conect.js";
 //rutas
-import propiedadeRouter from "./routes/propiedad.js";
 
 //inicializar
-const PUERTO = process.env.PUERTO;
+const PUERTO = process.env.PUERTO || 2000;
 const IniciaApp = () => {
   httpServer.listen(PUERTO, async () => {
     await dbConect();
