@@ -2,6 +2,7 @@ import bcrypt from "bcrypt";
 import Usuario from "#models/usuario.js";
 const userRegisterController = async (req, res) => {
   const { _id, nombre, correo, password } = req.body; //toma los atributos de la peticion
+
   const registradoID = await Usuario.findById(_id).exec();
   if (registradoID)
     return res

@@ -18,16 +18,3 @@ const IniciaApp = () => {
 };
 
 IniciaApp();
-// app.use(cors());
-// app.use(express.json());
-// app.set("port", process.env.PUERTO || 2000);
-// app.use("/cuenta", cuentaRuter);
-// app.use("/propiedad", propiedadeRouter);
-//inicia server
-
-//pruebaBD
-
-// app.listen(app.get("port"), () => {
-//   console.log(`puerto en ${app.get("port")}`);
-//   dbConect();
-// });

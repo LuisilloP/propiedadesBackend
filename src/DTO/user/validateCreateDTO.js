@@ -8,7 +8,7 @@ import {
   CorreoDTOSchema,
   PasswordDTOSchema,
 } from "#DTO/user/dto-types.js";
-const loginDtoSchema = Type.Object(
+const CreateDtoSchema = Type.Object(
   {
     _id: IdDTOSchema,
     nombre: NombreDTOSchema,
@@ -27,9 +27,10 @@ const ajv = new Ajv({ allErrors: true });
 addFormats(ajv, ["uuid", "email"]).addKeyword("kind").addKeyword("modifier");
 addErrors(ajv);
 
-const validateSchema = ajv.compile(loginDtoSchema);
+const validateSchema = ajv.compile(CreateDtoSchema);
 
 const userRegisterDTO = (req, res, next) => {
+  console.log(req.body);
   const validDTO = validateSchema(req.body);
   if (!validDTO)
     return res
