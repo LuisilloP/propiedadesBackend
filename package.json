@@ -22,6 +22,7 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-validator": "^6.14.2",
+    "fs-extra": "^10.1.0",
     "jose": "4.8.3",
     "mongoose": "^6.5.2",
     "multer": "^1.4.5-lts.1"
@@ -37,6 +38,6 @@
     "#routes/*": "./src/routes/*",
     "#DTO/*": "./src/DTO/*",
     "#lib/*": "./src/lib/*",
-    "#utilidades/*":"./src/utilidades/*"
+    "#utilidades/*": "./src/utilidades/*"
   }
 }

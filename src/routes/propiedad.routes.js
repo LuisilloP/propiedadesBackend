@@ -15,9 +15,10 @@ import propiedadTerrenoDeleteController from "#controllers/propiedad-terreno/pro
 //PATCH
 import propiedadUpdateController from "#controllers/propiedad/propiedadUpdateController.js";
 import terrenoUpdateController from "#controllers/terreno/terrenoUpdateController.js";
-//GET READ
+//POST READ
 import propiedadReadAllController from "#controllers/propiedad-terreno/propiedadReadAllController.js";
 import propiedadTerrenoReadAOneController from "#controllers/propiedad-terreno/propiedad-terrenoReadOneController.js";
+import propiedadesGetImagesController from "#controllers/propiedad-terreno/propiedadesGetImagesController.js";
 
 import multer from "multer";
 import storage from "#config/multer.js";
@@ -77,16 +78,17 @@ propiedadRouter.delete(
   propiedadTerrenoDeleteController
 );
 
-propiedadRouter.get(
+propiedadRouter.post(
   "/mostrarpropiedades",
-  userJWTDTOP,
+  //userJWTDTOP,
   propiedadReadAllController
 );
-propiedadRouter.get(
+propiedadRouter.post(
   "/mostrarpropiedad",
   userJWTDTOP,
   propiedadTerrenoReadAOneController
 );
+propiedadRouter.get("/get/images/:image", propiedadesGetImagesController);
 
 //terreno
 export default propiedadRouter;

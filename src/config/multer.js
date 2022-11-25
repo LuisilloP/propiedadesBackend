@@ -7,7 +7,7 @@ const storage = multer.diskStorage({
     cb(null, `${filename}.${extencion}`);
   },
   destination: function (req, res, cb) {
-    cb(null, "./src/database/images");
+    cb(null, "./database/images");
   },
 });
 export default storage;
