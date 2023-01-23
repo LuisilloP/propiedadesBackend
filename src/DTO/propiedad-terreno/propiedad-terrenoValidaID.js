@@ -14,7 +14,7 @@ const propiedadTerrenoValidaIdDTO = (req, res, next) => {
   const IsValid = validaDel(req);
   if (!IsValid)
     res.status(400).send({
-      errors: validaDel.errors.map((error) => error.message + "here"),
+      errors: validaDel.errors.map((error) => error.message),
     });
   next();
 };

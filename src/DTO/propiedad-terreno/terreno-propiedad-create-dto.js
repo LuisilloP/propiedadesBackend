@@ -14,12 +14,12 @@ import {
 } from "#DTO/propiedad-terreno/propiedades-dto-types.js";
 const DTOPlantilla = Type.Object({
   _id: IdDTOSchema,
-  titulo: TituloDTOSchema,
-  ubicacion: ubicacionDTOSchema,
-  descripcion: DescripcionDTOSchema,
-  tipo: TipoDTOSchema,
-  metros: MetrosDTOSchema,
-  precio: PrecioDTOSchema,
+  title: TituloDTOSchema,
+  ubication: ubicacionDTOSchema,
+  description: DescripcionDTOSchema,
+  type: TipoDTOSchema,
+  meters: MetrosDTOSchema,
+  price: PrecioDTOSchema,
 });
 
 const ajv = new Ajv({ allErrors: true });
@@ -29,11 +29,12 @@ const validateSchema = ajv.compile(DTOPlantilla);
 const TerrenoPropiedadDTO = (req, res, next) => {
   try {
     const validDTO = validateSchema(req.body);
+    console.log(req.body);
     if (!validDTO) {
       eliminateImg(req.files);
-      return res
-        .status(400)
-        .send({ errors: validateSchema.errors.map((error) => error.message) });
+      return res.status(400).send({
+        errors: validateSchema.errors.map((error) => error.message),
+      });
     }
     next();
   } catch (errr) {

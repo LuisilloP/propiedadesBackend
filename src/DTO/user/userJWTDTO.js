@@ -13,6 +13,7 @@ const userJWTDTO = async (req, res, next) => {
       encoder.encode(process.env.LLAVE_JWT)
     );
     req.id = payload.id;
+
     next();
   } catch (error) {
     return res.status(401).send({ errors: ["usuario no autorizado"] });

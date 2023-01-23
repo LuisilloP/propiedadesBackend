@@ -6,7 +6,7 @@ import Ajv from "ajv";
 import { CorreoDTOSchema, PasswordDTOSchema } from "#DTO/user/dto-types.js";
 const loginDto = Type.Object(
   {
-    correo: CorreoDTOSchema,
+    mail: CorreoDTOSchema,
     password: PasswordDTOSchema,
   },
   {
@@ -24,7 +24,6 @@ const validate = ajv.compile(loginDto);
 
 const validateLoginDTO = (req, res, next) => {
   const ISvalidacion = validate(req.body);
-
   if (!ISvalidacion)
     return res
       .status(400)

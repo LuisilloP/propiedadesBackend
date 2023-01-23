@@ -8,8 +8,8 @@ import {
   LuzDTOSchema,
 } from "#DTO/propiedad-terreno/propiedades-dto-types.js";
 const PlantillaTerreno = Type.Object({
-  agua: AguaDTOSchema,
-  luz: LuzDTOSchema,
+  water: AguaDTOSchema,
+  light: LuzDTOSchema,
 });
 const ajv = new Ajv({ allErrors: true });
 

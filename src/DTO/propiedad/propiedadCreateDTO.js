@@ -8,8 +8,8 @@ import {
   BanioDTOSchema,
 } from "#DTO/propiedad-terreno/propiedades-dto-types.js";
 const PlantillaPropiedad = Type.Object({
-  habitacion: HabitacionDTOSchema,
-  banio: BanioDTOSchema,
+  beedrooms: HabitacionDTOSchema,
+  toilets: BanioDTOSchema,
 });
 const ajv = new Ajv({ allErrors: true });
 
@@ -18,12 +18,14 @@ addErrors(ajv);
 const validateSchema = ajv.compile(PlantillaPropiedad);
 const PropiedadDTO = (req, res, next) => {
   const validDTO = validateSchema(req.body);
+
   if (!validDTO) {
     eliminateImg(req.files);
     return res
       .status(400)
       .send({ errors: validateSchema.errors.map((error) => error.message) });
   }
+
   next();
 };
 export default PropiedadDTO;

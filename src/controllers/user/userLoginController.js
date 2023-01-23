@@ -2,8 +2,8 @@ import Usuario from "#models/usuario.js";
 import { compare } from "bcrypt";
 import { SignJWT } from "jose";
 const userLoginController = async (req, res) => {
-  const { correo, password } = req.body;
-  const correoExiste = await Usuario.findOne({ correo }).exec();
+  const { mail, password } = req.body;
+  const correoExiste = await Usuario.findOne({ mail }).exec();
   if (!correoExiste) return res.status(401).send({ errors: ["Incorrecto"] });
   const checkPassword = await compare(password, correoExiste.password);
   if (!checkPassword) return res.status(401).send({ errors: ["Incorrecto"] });

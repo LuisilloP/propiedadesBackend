@@ -12,7 +12,7 @@ import terrenoRegisterController from "#controllers/terreno/terrenoRegisterContr
 import propiedadTerrenoDeleteDTO from "#DTO/propiedad-terreno/propiedad-terrenoValidaID.js";
 import propiedadTerrenoDeleteController from "#controllers/propiedad-terreno/propiedad-terrenoDeleteController.js";
 
-//PATCH
+//put
 import propiedadUpdateController from "#controllers/propiedad/propiedadUpdateController.js";
 import terrenoUpdateController from "#controllers/terreno/terrenoUpdateController.js";
 //POST READ
@@ -56,16 +56,18 @@ propiedadRouter.post(
   TerrenoDTO,
   terrenoRegisterController
 );
-propiedadRouter.patch(
+propiedadRouter.put(
   "/actualizarpropiedad",
   userJWTDTOP,
+  upload.array("images", 5),
   TerrenoPropiedadDTO,
   PropiedadDTO,
   propiedadUpdateController
 );
-propiedadRouter.patch(
+propiedadRouter.put(
   "/actualizarterreno",
   userJWTDTOP,
+  upload.array("images", 5),
   TerrenoPropiedadDTO,
   TerrenoDTO,
   terrenoUpdateController
@@ -80,6 +82,11 @@ propiedadRouter.delete(
 
 propiedadRouter.post(
   "/mostrarpropiedades",
+  userJWTDTOP,
+  propiedadReadAllController
+);
+propiedadRouter.post(
+  "/mostrarpropiedadesPrincipal",
   //userJWTDTOP,
   propiedadReadAllController
 );
