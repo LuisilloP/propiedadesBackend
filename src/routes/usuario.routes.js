@@ -20,6 +20,9 @@ userRouter.post("/login", validateLoginDTO, userLoginController); //userLoginCon
 
 //pregunta cabecera
 userRouter.get("/perfil", userJWTDTOP, userPerfilController);
+userRouter.get("/testUser", (req, res) => {
+  res.send({ msg: "rpueba" });
+});
 
 userRouter.delete(
   "/delete",
