@@ -92,7 +92,7 @@ propiedadRouter.post(
 );
 propiedadRouter.post(
   "/mostrarpropiedad",
-  userJWTDTOP,
+  //userJWTDTOP,
   propiedadTerrenoReadAOneController
 );
 propiedadRouter.get("/get/images/:image", propiedadesGetImagesController);
